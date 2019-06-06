@@ -5,7 +5,7 @@ import { ResultsComponent } from './results/results.component';
 import { ScoresComponent } from './scores/scores.component';
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/quiz" },
+  { path: "", redirectTo: "/quiz", pathMatch: "full" },
   { path: "quiz", component: QuizComponent },
   { path: "results", component: ResultsComponent },
   { path: "scores", component: ScoresComponent },
