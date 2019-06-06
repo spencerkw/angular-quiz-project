@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { ResultsComponent } from './results/results.component';
+import { ScoresComponent } from './scores/scores.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuizComponent,
+    ResultsComponent,
+    ScoresComponent
   ],
   imports: [
     BrowserModule,
