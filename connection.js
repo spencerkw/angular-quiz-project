@@ -5,7 +5,7 @@ const credentials = {
   password: "password",
   host: "localhost",
   port: 5432,
-  database: "ExpressShopDB",
+  database: "TriviaDB",
   ssl: false
 };
 
