@@ -16,7 +16,7 @@ h1 {
 
 section {
   width: 25%;
-  background-color: rgba(148, 0, 211, 0.7);
+  background-color: rgba(32, 175, 247, 0.7);
   border: 1px solid black;
   border-radius: 15px;
   padding: 20px;
@@ -33,7 +33,7 @@ section {
 .table-header {
   font-weight: bold;
   font-size: 1.25rem;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .table-header p, li p {
