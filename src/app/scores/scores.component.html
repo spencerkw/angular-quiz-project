@@ -2,10 +2,16 @@
   <h1>High Scores</h1>
 
   <section class="score-list">
+    <div class="table-header">
+      <p class="username">User</p>
+      <p>Score</p>
+    </div>
     <ol>
-      <li class="score-entry" *ngFor="let score of scores">
-        <p>{{score.username}}</p>
-        <p>{{score.score}}</p>
+      <li *ngFor="let score of scores">
+        <div class="score-entry">
+          <p class="username">{{score.username}}</p>
+          <p>{{score.score}}</p>
+        </div>
       </li>
     </ol>
   </section>

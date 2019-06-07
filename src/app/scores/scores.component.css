@@ -1,0 +1,44 @@
+main, section {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  align-items: center;
+
+  color: lightgray;
+}
+
+h1 {
+  margin: 20px;
+}
+
+section {
+  width: 25%;
+  background-color: rgba(148, 0, 211, 0.7);
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.table-header, .score-entry {
+  display: flex;
+}
+
+.table-header, ol {
+  padding: 0 20px;
+}
+
+.table-header {
+  font-weight: bold;
+  font-size: 1.25rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.table-header p, li p {
+  margin: 10px;
+}
+
+.username {
+  flex: 1;
+}
