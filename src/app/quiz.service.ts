@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class QuizService {
 
+  private quizQuestions: Question[];
   private userResponses: any;
   private userScore: Score;
 
@@ -23,7 +24,15 @@ export class QuizService {
     return this.userScore;
   }
 
-  getQuestions(): Observable<any> {
+  getStoredQuestions(): Question[] {
+    return this.quizQuestions;
+  }
+
+  storeQuestions(questions: Question[]): void {
+    this.quizQuestions = questions;
+  }
+
+  getNewQuestions(): Observable<any> {
     return this.http.get("/api/questions", { responseType: "json" });
   }
 
@@ -35,13 +44,13 @@ export class QuizService {
     return this.http.post("/api/scores", score, { responseType: "json" });
   }
 
-  calculateScore(username: string, questions: Question[], responses: any): void {
+  calculateScore(username: string, responses: any): void {
     this.userResponses = responses; //save the responses
 
     //calculate the score
     let score = 0;
-    for (let i = 0; i < questions.length; ++i) {
-      if (questions[i].answer === this.userResponses[`question${i}`]) {
+    for (let i = 0; i < this.quizQuestions.length; ++i) {
+      if (this.quizQuestions[i].answer === this.userResponses[`question${i}`]) {
         score++;
       }
     }
@@ -51,9 +60,13 @@ export class QuizService {
       username: username,
       score: score
     };
-    console.log(this.userScore);
-    this.addScore(this.userScore);
+    //post the score, then move to results
+    this.addScore(this.userScore).subscribe(() => {
+      this.router.navigate(["/results"]);
+    });
+  }
 
-    this.router.navigate(["/results"]);
+  resetQuiz(): void {
+    this.quizQuestions = null;
   }
 }

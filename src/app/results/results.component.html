@@ -1,3 +1,19 @@
-<p>
-  results works!
-</p>
+<main>
+  <a *ngIf="!userScore || !userResponses" routerLink="/quiz">Take the quiz first!</a>
+
+  <section *ngIf="userScore" class="score-section">
+    <h1>Thanks for playing, {{userScore.username}}!</h1>
+    <p>Your score: {{userScore.score}}</p>
+    <a routerLink="/scores">View Leaderboard</a>
+  </section>
+
+  <section *ngIf="userResponses" class="answers-section">
+    <div class="correct-answer-container"
+      *ngFor="let question of questions; index as i"
+      [ngClass]="{'correct': question.answer === getResponse(i), 'incorrect': !(question.answer === getResponse(i))}">
+      <p>Question: {{question.question_name}}</p>
+      <p>Correct Answer: {{question.answer}}</p>
+      <p>Your Answer: {{getResponse(i)}}</p>
+    </div>
+  </section>
+</main>

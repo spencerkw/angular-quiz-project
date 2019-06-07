@@ -19,8 +19,9 @@ export class QuizComponent implements OnInit {
   }
 
   getQuestions(): void {
-    this.quiz.getQuestions().subscribe((response: any) => {
+    this.quiz.getNewQuestions().subscribe(response => {
       this.questions = response;
+      this.quiz.storeQuestions(this.questions);
     });
   }
 
@@ -32,7 +33,7 @@ export class QuizComponent implements OnInit {
 
   submitQuiz(form): void {
     console.log(form.value);
-    this.quiz.calculateScore(this.username, this.questions, form.value);
+    this.quiz.calculateScore(this.username, form.value);
   }
 
 }
