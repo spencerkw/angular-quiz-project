@@ -1,0 +1,76 @@
+main, form {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  align-items: center;
+  color: lightgray;
+}
+
+h1 {
+  margin: 20px;
+  font-size: 2rem;
+}
+
+form {
+  color: whitesmoke;
+}
+
+.name-form, .question-container {
+  background-color: rgba(32, 175, 247, 0.7);
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
+.name-form {
+  width: 30%;
+}
+
+.questions-form {
+  align-items: center;
+  margin: 10px;
+  width: 90%;
+}
+
+.question-container {
+  width: 50%;
+}
+
+.name-form>* {
+  margin: 10px 15px;
+}
+
+.question-container>* {
+  margin: 15px;
+}
+
+input, button {
+  font-family: inherit;
+  padding: 10px;
+
+  border-radius: 15px;
+  border: 1px solid black;
+  background-color: whitesmoke;
+}
+
+input {
+  font-size: 0.75rem;
+}
+
+button {
+  font-size: 1rem;
+}
+
+.question-container {
+  margin: 10px;
+}
+
+.radio-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.radio-btn-container>* {
+  margin: 0 5px;
+}

@@ -1,11 +1,15 @@
 <main>
+  <h1>The Quiz!</h1>
+
   <form *ngIf="!username" class="name-form" #nameForm="ngForm" (ngSubmit)="setUsername(nameForm.value.username)">
-    <input type="text" ngModel name="username">
+    <p>Enter your name:</p>
+    <input type="text" ngModel name="username" placeholder="Name">
     <button>Quiz Me!</button>
   </form>
   
   <form *ngIf="username" class="questions-form" #questionsForm="ngForm" (ngSubmit)="submitQuiz(questionsForm)">
     <div *ngFor="let question of questions; index as i" class="question-container">
+      <h3>Question {{i+1}}</h3>
       <p>{{ question.question_name }}</p>
 
       <div class="radio-btn-container">
