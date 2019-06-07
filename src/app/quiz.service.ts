@@ -32,7 +32,7 @@ export class QuizService {
   }
 
   addScore(score: Score): Observable<any> {
-    return this.http.post("/scores", score, { responseType: "json" });
+    return this.http.post("/api/scores", score, { responseType: "json" });
   }
 
   calculateScore(username: string, questions: Question[], responses: any): void {
