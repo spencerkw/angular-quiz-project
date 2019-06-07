@@ -24,11 +24,11 @@ export class QuizService {
   }
 
   getQuestions(): Observable<any> {
-    return this.http.get("/questions", { responseType: "json" });
+    return this.http.get("/api/questions", { responseType: "json" });
   }
 
   getScores(): Observable<any> {
-    return this.http.get("/scores", { responseType: "json" });
+    return this.http.get("/api/scores", { responseType: "json" });
   }
 
   addScore(score: Score): Observable<any> {

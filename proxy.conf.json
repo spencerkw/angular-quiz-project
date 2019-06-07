@@ -1,9 +1,5 @@
 {
-  "/questions": {
-    "target": "http://localhost:3000",
-    "secure": false
-  },
-  "/scores": {
+  "/api": {
     "target": "http://localhost:3000",
     "secure": false
   }

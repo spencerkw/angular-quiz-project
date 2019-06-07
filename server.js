@@ -7,7 +7,7 @@ const port = 3000;
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
-app.use("/questions", questionRoutes);
-app.use("/scores", scoresRoutes);
+app.use("/api/questions", questionRoutes);
+app.use("/api/scores", scoresRoutes);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
