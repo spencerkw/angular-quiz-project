@@ -10,12 +10,10 @@ function selectAll(res) {
 }
 
 router.get("", (req, res) => {
-  console.log("getting scores");
   selectAll(res);
 });
 
 router.post("", (req, res) => {
-  console.log("posting a score");
   pool.query("INSERT INTO scores (username, score) VALUES ($1::text, $2::int)", [
     req.body.username,
     req.body.score
