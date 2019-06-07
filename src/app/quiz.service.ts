@@ -1,38 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+
 import { Score } from './score';
 import { Question } from './question';
-import { Router } from '@angular/router';
+import { QuestionResult } from './question-result';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
 
-  private quizQuestions: Question[];
-  private userResponses: any;
+  private quizResults: QuestionResult[];
   private userScore: Score;
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getUserResponses(): any {
-    return this.userResponses;
+  getQuizResults(): any {
+    return this.quizResults;
   }
 
   getUserScore(): Score {
     return this.userScore;
   }
 
-  getStoredQuestions(): Question[] {
-    return this.quizQuestions;
-  }
-
-  storeQuestions(questions: Question[]): void {
-    this.quizQuestions = questions;
-  }
-
-  getNewQuestions(): Observable<any> {
+  getQuestions(): Observable<any> {
     return this.http.get("/api/questions", { responseType: "json" });
   }
 
@@ -44,13 +37,19 @@ export class QuizService {
     return this.http.post("/api/scores", score, { responseType: "json" });
   }
 
-  calculateScore(username: string, responses: any): void {
-    this.userResponses = responses; //save the responses
+  calculateScore(username: string, questions: Question[], responses: any): void {
+    this.quizResults = [];
 
     //calculate the score
     let score = 0;
-    for (let i = 0; i < this.quizQuestions.length; ++i) {
-      if (this.quizQuestions[i].answer === this.userResponses[`question${i}`]) {
+    for (let i = 0; i < questions.length; ++i) {
+      let result: QuestionResult = {
+        question: questions[i],
+        response: responses[`question${i}`]
+      };
+      this.quizResults.push(result);
+
+      if (result.question.answer === result.response) {
         score++;
       }
     }
@@ -64,9 +63,5 @@ export class QuizService {
     this.addScore(this.userScore).subscribe(() => {
       this.router.navigate(["/results"]);
     });
-  }
-
-  resetQuiz(): void {
-    this.quizQuestions = null;
   }
 }

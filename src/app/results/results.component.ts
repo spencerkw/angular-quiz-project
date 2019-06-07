@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Score } from '../score';
 import { QuizService } from '../quiz.service';
-import { Question } from '../question';
+import { QuestionResult } from '../question-result';
 
 @Component({
   selector: 'app-results',
@@ -11,19 +11,13 @@ import { Question } from '../question';
 export class ResultsComponent implements OnInit {
 
   userScore: Score;
-  questions: Question[];
-  userResponses: any;
+  quizResults: QuestionResult[];
 
   constructor(private quiz: QuizService) { }
 
   ngOnInit() {
     this.userScore = this.quiz.getUserScore();
-    this.questions = this.quiz.getStoredQuestions();
-    this.userResponses = this.quiz.getUserResponses();
-  }
-
-  getResponse(index: number) {
-    return this.userResponses[`question${index}`];
+    this.quizResults = this.quiz.getQuizResults();
   }
 
 }
