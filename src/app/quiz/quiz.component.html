@@ -1,3 +1,35 @@
-<p>
-  quiz works!
-</p>
+<main>
+  <form *ngIf="!username" class="name-form" #nameForm="ngForm" (ngSubmit)="setUsername(nameForm.value.username)">
+    <input type="text" ngModel name="username">
+    <button>Quiz Me!</button>
+  </form>
+  
+  <form *ngIf="username" class="questions-form" #questionsForm="ngForm" (ngSubmit)="submitQuiz(questionsForm)">
+    <div *ngFor="let question of questions; index as i" class="question-container">
+      <p>{{ question.question_name }}</p>
+
+      <div class="radio-btn-container">
+        <input type="radio" id="q{{i}}c1" name="question{{i}}" value="{{ question.choice1 }}" ngModel>
+        <label for="q{{i}}c1">{{ question.choice1 }}</label>
+      </div>
+
+      <div class="radio-btn-container">
+        <input type="radio" id="q{{i}}c2" name="question{{i}}" value="{{ question.choice2 }}" ngModel>
+        <label for="q{{i}}c2">{{ question.choice2 }}</label>
+      </div>
+
+      <div class="radio-btn-container">
+        <input type="radio" id="q{{i}}c3" name="question{{i}}" value="{{ question.choice3 }}" ngModel>
+        <label for="q{{i}}c3">{{ question.choice3 }}</label>
+      </div>
+
+      <div class="radio-btn-container">
+        <input type="radio" id="q{{i}}c4" name="question{{i}}" value="{{ question.choice4 }}" ngModel>
+        <label for="q{{i}}c4">{{ question.choice4 }}</label>
+      </div>
+
+    </div>
+
+    <button>Submit Answers</button>
+  </form>
+</main>
