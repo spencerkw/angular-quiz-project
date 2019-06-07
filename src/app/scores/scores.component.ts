@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Score } from '../score';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-scores',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScoresComponent implements OnInit {
 
-  constructor() { }
+  scores: Score[];
+
+  constructor(private quiz: QuizService) { }
 
   ngOnInit() {
+    this.quiz.getScores().subscribe(response => {
+      this.scores = response;
+    });
   }
 
 }

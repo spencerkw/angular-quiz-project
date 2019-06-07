@@ -1,3 +1,12 @@
-<p>
-  scores works!
-</p>
+<main>
+  <h1>High Scores</h1>
+
+  <section class="score-list">
+    <ol>
+      <li class="score-entry" *ngFor="let score of scores">
+        <p>{{score.username}}</p>
+        <p>{{score.score}}</p>
+      </li>
+    </ol>
+  </section>
+</main>
