@@ -6,11 +6,12 @@ main, section {
 main {
   align-items: center;
 
-  color: lightgray;
+  color: whitesmoke;
 }
 
 h1 {
   margin: 20px;
+  font-size: 2rem;
 }
 
 section {
