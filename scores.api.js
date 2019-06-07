@@ -4,7 +4,7 @@ const router = express.Router();
 const pool = require("./connection");
 
 function selectAll(res) {
-  pool.query("SELECT * FROM scores").then(result => {
+  pool.query("SELECT * FROM scores ORDER BY score DESC").then(result => {
     res.json(result.rows);
   });
 }
