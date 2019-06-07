@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC");
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./assets/question-mark-background.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-attachment: fixed, fixed;
+
+  font-family: 'Noto Sans TC', sans-serif;
+  color: black;
+}
