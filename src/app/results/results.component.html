@@ -13,7 +13,7 @@
       [ngClass]="{'correct': answerIsCorrect(i), 'incorrect': !answerIsCorrect(i)}">
       <p>Question: {{result.question.question_name}}</p>
       <p>Correct Answer: {{result.question.answer}}</p>
-      <p>Your Answer: {{result.response}}</p>
+      <p>Your Answer: {{result.response ? result.response : 'N/A'}}</p>
     </div>
   </section>
 </main>
