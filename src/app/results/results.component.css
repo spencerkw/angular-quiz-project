@@ -45,10 +45,11 @@ a.no-quiz-link:hover {
 
 .answers-section {
   padding: 10px 0;
+  width: 90%;
 }
 
 .answer-container {
-  width: 60%;
+  width: 50%;
   margin: 10px 0;
 }
 
