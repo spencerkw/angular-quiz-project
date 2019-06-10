@@ -11,6 +11,8 @@ header {
 
 .site-title {
   flex: 1;
+  margin: 1em 0;
+  color: inherit;
 }
 
 a {
