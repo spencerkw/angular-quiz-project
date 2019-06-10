@@ -17,7 +17,7 @@ router.post("", (req, res) => {
   pool.query("INSERT INTO scores (username, score) VALUES ($1::text, $2::int)", [
     req.body.username,
     req.body.score
-  ]).then(result => {
+  ]).then(() => {
     selectAll(res);
   });
 });
