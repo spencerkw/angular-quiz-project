@@ -1,16 +1,16 @@
 <main>
-  <a *ngIf="!userScore || !quizResults" routerLink="/quiz">Take the quiz first!</a>
+  <a *ngIf="!userScore || !quizResults" class="no-quiz-link" routerLink="/quiz">Take the quiz first!</a>
 
   <section *ngIf="userScore" class="score-section">
     <h1>Thanks for playing, {{userScore.username}}!</h1>
     <p>Your score: {{userScore.score}}</p>
-    <a routerLink="/scores">View Leaderboard</a>
+    <a class="leaderboard-link" routerLink="/scores">View Leaderboard</a>
   </section>
 
   <section *ngIf="quizResults" class="answers-section">
     <div class="answer-container"
       *ngFor="let result of quizResults; index as i"
-      [ngClass]="{'correct': result.question.answer === result.question.response, 'incorrect': !(result.question.answer === result.question.response)}">
+      [ngClass]="{'correct': answerIsCorrect(i), 'incorrect': !answerIsCorrect(i)}">
       <p>Question: {{result.question.question_name}}</p>
       <p>Correct Answer: {{result.question.answer}}</p>
       <p>Your Answer: {{result.response}}</p>

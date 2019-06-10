@@ -20,4 +20,9 @@ export class ResultsComponent implements OnInit {
     this.quizResults = this.quiz.getQuizResults();
   }
 
+  answerIsCorrect(index: number): boolean {
+    let result = this.quizResults[index];
+    return result.question.answer === result.response;
+  }
+
 }
